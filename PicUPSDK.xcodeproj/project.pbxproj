@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				4553B2FD238BE3E100BF1019 /* PicUPSDK */,
-				8452B1FA238B544D00302C4A /* Source */,
+				8452B1FA238B544D00302C4A /* Sources */,
 				8452B1F9238B544D00302C4A /* Products */,
 				8FEBE0A485F45A9D1C32F57A /* Pods */,
 				06EF035A2C3C7942E0D3C806 /* Frameworks */,
@@ -114,13 +114,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8452B1FA238B544D00302C4A /* Source */ = {
+		8452B1FA238B544D00302C4A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				4553B2EA238BDB2B00BF1019 /* Models */,
 				4553B2EF238BDB2B00BF1019 /* Services */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		8FEBE0A485F45A9D1C32F57A /* Pods */ = {
