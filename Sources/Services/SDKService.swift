@@ -26,6 +26,12 @@ public struct PCUSDKUser {
     public var mode = "Waked ( On App )"
     public var permission = "1,1,0,1,1"
     public var serviceEnabled = "true"
+    
+    public init(phoneNumber: String, name: String, token: String) {
+        self.phoneNumber = phoneNumber
+        self.name = name
+        self.token = token
+    }
 }
 
 open class SDKService {
