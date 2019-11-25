@@ -6,9 +6,9 @@
 //  Copyright © 2019 ItWorksinUA. All rights reserved.
 //
 
-import Foundation
 import AddressBook
 import Contacts
+import Foundation
 import UIKit
 
 // MARK: - PullMessageData
@@ -26,7 +26,7 @@ public struct PCUSDKUser {
     public var mode = "Waked ( On App )"
     public var permission = "1,1,0,1,1"
     public var serviceEnabled = "true"
-    
+
     public init(phoneNumber: String, name: String, token: String) {
         self.phoneNumber = phoneNumber
         self.name = name
@@ -35,16 +35,15 @@ public struct PCUSDKUser {
 }
 
 open class SDKService {
-    
     public static let shared = SDKService()
-    
-    func getData(_ user: PCUSDKUser, finalBlock: @escaping ()->() ){
+
+    public func getData(_ user: PCUSDKUser, finalBlock: @escaping () -> Void) {
         NetworkService.shared.deviceToken = user.token
-        NetworkService.shared.getSessionToken { (err) in
-            NetworkService.shared.registerClientDevice(phoneNumber: user.phoneNumber, name: user.name) { (dev, err) in
-                NetworkService.shared.pullMessageData(status: "App. version: \(user.appVersion) \nSDK version: \(user.sdkVersion) \nDevice name: \(user.deviceName) \nDevice model: \(user.deviceModel) \nOS version: \(user.osVersion) \nScreen size: \(user.screenSize) \nScreen density: \(user.screenDensity) \nMode: \(user.mode) \nPermissions: \(user.permission) \nService enabled: \(user.serviceEnabled)") { (data, err) in
-                    let worker = CNWorker.init(nil)
-                    worker.requestForAccess { (success) in
+        NetworkService.shared.getSessionToken { err in
+            NetworkService.shared.registerClientDevice(phoneNumber: user.phoneNumber, name: user.name) { dev, err in
+                NetworkService.shared.pullMessageData(status: "App. version: \(user.appVersion) \nSDK version: \(user.sdkVersion) \nDevice name: \(user.deviceName) \nDevice model: \(user.deviceModel) \nOS version: \(user.osVersion) \nScreen size: \(user.screenSize) \nScreen density: \(user.screenDensity) \nMode: \(user.mode) \nPermissions: \(user.permission) \nService enabled: \(user.serviceEnabled)") { data, err in
+                    let worker = CNWorker(nil)
+                    worker.requestForAccess { success in
                         if let group = worker.makeGroup() {
                             if let persons = data?.pullMessageData?.campaignsData {
                                 for person in persons {
@@ -58,17 +57,17 @@ open class SDKService {
                                             newContact.imageData = image.pngData()
                                         }
                                     }
-                                    //newContact.note = "PICUP SDK"
+                                    // newContact.note = "PICUP SDK"
                                     newContact.phoneNumbers = [CNLabeledValue(
-                                        label:CNLabelPhoneNumberiPhone,
-                                        value:CNPhoneNumber(stringValue:person.backNumber!))]
+                                        label: CNLabelPhoneNumberiPhone,
+                                        value: CNPhoneNumber(stringValue: person.backNumber!)
+                                    )]
                                     do {
                                         let saveRequest = CNSaveRequest()
                                         saveRequest.add(newContact, toContainerWithIdentifier: worker.curContainer?.identifier)
                                         saveRequest.addMember(newContact, to: group)
                                         try worker.contactStore.execute(saveRequest)
-                                    } catch {
-                                    }
+                                    } catch {}
                                     finalBlock()
                                 }
                             }
@@ -78,5 +77,4 @@ open class SDKService {
             }
         }
     }
-    
 }

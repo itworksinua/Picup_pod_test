@@ -10,10 +10,10 @@ import Foundation
 
 // MARK: - ClientDevice
 public struct ClientDevice: BaseResponse, Codable {
-    let status: Status?
-    let organizationPhoneNumber: String?
-    let pullMessageData: PullMessageData?
-    let organizationDisplayName: String?
+    public let status: Status?
+    public let organizationPhoneNumber: String?
+    public let pullMessageData: PullMessageData?
+    public let organizationDisplayName: String?
     
     enum CodingKeys: String, CodingKey {
         case status
@@ -25,13 +25,13 @@ public struct ClientDevice: BaseResponse, Codable {
 
 // MARK: - PullMessageData
 public struct PullMessageData: Codable {
-    let organizationData: OrganizationData?
-    let campaignsData: [CampaignsDatum]?
-    let senderID: String?
-    let campaignID: Int?
-    let senderGUID: String?
-    let messageType: String?
-    let outgoingNumbersData: [OutgoingNumbersDatum]?
+    public let organizationData: OrganizationData?
+    public let campaignsData: [CampaignsDatum]?
+    public let senderID: String?
+    public let campaignID: Int?
+    public let senderGUID: String?
+    public let messageType: String?
+    public let outgoingNumbersData: [OutgoingNumbersDatum]?
     
     enum CodingKeys: String, CodingKey {
         case organizationData
@@ -46,17 +46,17 @@ public struct PullMessageData: Codable {
 
 // MARK: - CampaignsDatum
 public struct CampaignsDatum: Codable {
-    let campID: Int?
-    let dispName: String?
-    let id: Int?
-    let backNumber: String?
-    let msgFormat: String?
-    let expireTime: String?
-    let dispText: String?
-    let imageURL: String?
-    let imageDate: Int?
-    let name: String?
-    let screenConfig: Int?
+    public let campID: Int?
+    public let dispName: String?
+    public let id: Int?
+    public let backNumber: String?
+    public let msgFormat: String?
+    public let expireTime: String?
+    public let dispText: String?
+    public let imageURL: String?
+    public let imageDate: Int?
+    public let name: String?
+    public let screenConfig: Int?
     
     enum CodingKeys: String, CodingKey {
         case campID
@@ -75,21 +75,21 @@ public struct CampaignsDatum: Codable {
 
 // MARK: - OrganizationData
 public struct OrganizationData: Codable {
-    let logoDate: Int?
-    let logoURL: String?
-    let phoneNumber: String?
-    let disable: Int?
-    let name: String?
-    let contact: Int?
-    let id: Int?
-    let imageDate: Int?
-    let dispName: String?
-    let dispText: String?
-    let imageURL: String?
-    let orgCode: Int?
-    let color2: String?
-    let carrier: Int?
-    let color1: String?
+    public let logoDate: Int?
+    public let logoURL: String?
+    public let phoneNumber: String?
+    public let disable: Int?
+    public let name: String?
+    public let contact: Int?
+    public let id: Int?
+    public let imageDate: Int?
+    public let dispName: String?
+    public let dispText: String?
+    public let imageURL: String?
+    public let orgCode: Int?
+    public let color2: String?
+    public let carrier: Int?
+    public let color1: String?
     
     enum CodingKeys: String, CodingKey {
         case logoDate
@@ -112,8 +112,8 @@ public struct OrganizationData: Codable {
 
 // MARK: - OutgoingNumbersDatum
 public struct OutgoingNumbersDatum: Codable {
-    let number: String?
-    let id: Int?
+    public let number: String?
+    public let id: Int?
     
     enum CodingKeys: String, CodingKey {
         case number

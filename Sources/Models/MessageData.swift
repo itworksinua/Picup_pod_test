@@ -10,8 +10,8 @@ import Foundation
 
 // MARK: - MessageData
 public struct MessageData: BaseResponse, Codable {
-    let pullMessageData: PullMessageData?
-    let status: Status?
+    public let pullMessageData: PullMessageData?
+    public let status: Status?
     
     enum CodingKeys: String, CodingKey {
         case pullMessageData

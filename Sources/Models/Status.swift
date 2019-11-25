@@ -10,8 +10,8 @@ import Foundation
 
 // MARK: - Status
 public struct Status: Codable {
-    let msg: String?
-    let code: String?
+    public let msg: String?
+    public let code: String?
     
     enum CodingKeys: String, CodingKey {
         case msg
@@ -24,7 +24,7 @@ protocol BaseResponse {
 }
 
 public struct GenericStatus: BaseResponse, Codable {
-    let status: Status?
+    public let status: Status?
     
     enum CodingKeys: String, CodingKey {
         case status

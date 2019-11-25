@@ -10,15 +10,15 @@ import Foundation
 
 // MARK: - SessionToken
 public struct SessionToken: BaseResponse, Codable {
-    let status: Status?
-    let token: String?
+    public let status: Status?
+    public let token: String?
     
     enum CodingKeys: String, CodingKey {
         case status
         case token
     }
     
-    init(status: Status?, token: String?) {
+    public init(status: Status?, token: String?) {
         self.status = status
         self.token = token
     }
