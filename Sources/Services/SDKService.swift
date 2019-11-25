@@ -13,19 +13,19 @@ import UIKit
 
 // MARK: - PullMessageData
 public struct PCUSDKUser {
-    var phoneNumber: String
-    var name: String
-    var token: String
-    var appVersion = "4.3.7.2 ( 248780747 )"
-    var sdkVersion = "2.6.6"
-    var deviceName = "samsung"
-    var deviceModel = "SM-G973F"
-    var osVersion = ""
-    var screenSize = "2042x1080"
-    var screenDensity = "420"
-    var mode = "Waked ( On App )"
-    var permission = "1,1,0,1,1"
-    var serviceEnabled = "true"
+    public var phoneNumber: String
+    public var name: String
+    public var token: String
+    public var appVersion = "4.3.7.2 ( 248780747 )"
+    public var sdkVersion = "2.6.6"
+    public var deviceName = "samsung"
+    public var deviceModel = "SM-G973F"
+    public var osVersion = ""
+    public var screenSize = "2042x1080"
+    public var screenDensity = "420"
+    public var mode = "Waked ( On App )"
+    public var permission = "1,1,0,1,1"
+    public var serviceEnabled = "true"
 }
 
 open class SDKService {
