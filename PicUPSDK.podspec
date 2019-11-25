@@ -19,8 +19,7 @@ Pod::Spec.new do |s|
     s.homepage = 'https://github.com/itworksinua/Picup_pod_test'
     
     # 6 - Replace this URL with your own Git URL from "Quick Setup"
-    s.source = { :git => 'https://github.com/itworksinua/Picup_pod_test.git',
-        :tag => s.version.to_s }
+    s.source = { :git => 'https://github.com/itworksinua/Picup_pod_test.git', :tag => s.version.to_s }
     
     # 7
     s.framework = 'UIKit'
